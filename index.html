@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graphs</title>
+</head>
+<body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            $('body').ready(function() {
+                $('li a').each(function(i, elem) {
+                    $(elem).click(function(evt) {
+                        $('#show').prop('src', $(evt.target).prop('href'));
+                        evt.stopPropagation();
+                        evt.preventDefault();
+                        $('li').removeClass('selected');
+                        $(evt.target).parents('li').addClass('selected');
+
+                        return false;
+                    });
+                });
+            });
+
+            $('#show').load(function(){
+                //$('.code').text( $('#show').contents().find('script').html() );
+                var contents = document.getElementById('show').contentWindow.document.body.innerHTML;
+                //contents = contents.replace("<", "&lt;").replace(">", "&gt;");
+                $('.code').text( contents );
+            });
+        }
+    </script>
+    <style>
+        html, body, div { margin: 0; padding: 0}
+
+        body {
+            font-family: Helvetica;
+            background-color: #444;
+            color: #FF9900;
+            padding: 20px; 
+        }
+
+        ul {
+            list-style: none;
+            margin-right: 5px;
+            border-right: solid 1px #FF9900;
+            padding: 5px;
+        }
+
+        li {
+            padding: 4px;
+            min-width: 100px;
+
+        }
+        li:hover {
+            background-color: #000;
+        }
+        li.selected {
+            padding: 3px;
+            background-color: #333;
+            border: 1px solid rgb(81, 96, 240);
+        }
+
+        a {
+            text-decoration: none;
+            display:block;
+            font-size: 12px;
+            font-family: arial;
+            outline: none;
+            color: #FF9900;
+        }
+
+        .mrflex
+        {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        a:visited
+        {
+            color: #FF9900;
+        }
+
+        #show {
+            
+            background-color: #EEE;
+            border: 0;
+            display: block;
+            width: 100%;
+            height: 70vh;
+        }
+
+        .rightside
+        {
+            width: 86%;
+        }
+
+        ul
+        {
+            width: 12%;
+        }
+
+        .code
+        {
+            width: 98%;
+            display: block;
+            border: 1px solid #CCC;
+            padding: 10px;
+            font-size: 12px;
+            overflow-wrap: normal;
+            overflow-y: scroll;
+            height: 50vh;
+        }
+
+    </style>
+
+    <div class='mrflex'>
+        <ul>
+            <li><a href="files/boxPlot.html">boxPlot</a>
+            <li><a href="files/boxPlotCustomModel.html">boxPlotCustomModel</a>
+            <li><a href="files/bulletChart.html">BulletChart</a>
+            <li><a href="files/candlestickChart.html">CandlestickChart</a>
+            <li><a href="files/cumulativeLineChart.html">CumulativeLineChart</a>
+            <li><a href="files/discreteBarChart.html">discreteBarChart</a>
+            <li><a href="files/donutChart.html">donutChart</a>
+            <li><a href="files/forceDirected.html">forceDirected</a>
+            <li><a href="files/heatMap.html">heatMap</a>
+            <li><a href="files/historicalBar.html">HistoricalBar</a>
+            <li><a href="files/historicalBarChart.html">HistoricalBarChart</a>
+            <li><a href="files/legend.html">Legend</a>
+            <li><a href="files/furiousLegend.html">Furious Legend</a>
+            <li><a href="files/lineChart.html">LineChart</a>
+            <li><a href="files/lineChartSVGResize.html">LineChartSVGResize</a>
+            <li><a href="files/linePlusBarChart.html">LinePlusBarChart</a>
+            <li><a href="files/lineWithFocusChart.html">LineWithFocusChart</a>
+            <li><a href="files/sankeyChart.html">SankeyChart</a>
+            <li><a href="files/multiBarChart.html">MultiBarChart</a>
+            <li><a href="files/multiBarChart2.html">MultiBarChart 2</a>
+            <li><a href="files/multiBarHorizontalChart.html">MultiBarHorizontalChart</a>
+            <li><a href="files/multiChart.html">MultiChart</a>
+            <li><a href="files/ohlcChart.html">ohlcChart</a>
+            <li><a href="files/parallelCoordinatesChart.html">parallelCoordinatesChart</a>
+            <li><a href="files/pieChart.html">PieChart</a>
+            <li><a href="files/scatterChart.html">ScatterChart</a>
+            <li><a href="files/scatterPlusLineChart.html">ScatterPlusLineChart</a>
+            <li><a href="files/sparkline.html">Sparkline</a>
+            <li><a href="files/sparklinePlus.html">SparklinePlus</a>
+            <li><a href="files/stackedAreaChart.html">StackedAreaChart</a>
+            <li><a href="files/stackedAreaWithFocusChart.html">stackedAreaWithFocusChart</a>
+            <li><a href="files/sunburst.html">sunburst</a>
+            <li><a href="files/TimeSeries.html">TimeSeries</a>
+            <li><a href="files/tooltip.html">tooltip</a>
+        </ul>
+
+        <div class='rightside'>
+            <iframe id="show"></iframe>
+            <pre class='code'></pre>
+        </div>
+        
+    </div>
+
+</body>
+</html>
